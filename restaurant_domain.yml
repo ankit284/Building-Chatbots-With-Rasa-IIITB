@@ -1,0 +1,129 @@
+slots:
+  location:
+    type: text
+  cuisine:
+    type: text
+  email:
+    type: text
+  budget:
+    type: float
+    min_value: 0
+  lat:
+    type: float
+  lon:
+    type: float
+  city_id:
+    type: text
+  cuisine_key:
+    type: text
+  api_response:
+    type: unfeaturized
+
+entities:
+- location
+- cuisine
+- email
+- budget
+
+intents:
+ - greet
+ - affirm
+ - deny
+ - goodbye
+ - restaurant_search
+ - send_email
+ - budget
+ - location
+ - cuisine
+ - default
+
+templates:
+  utter_greet:
+    - "hey there! How may i help you"
+    - "Hi, How can I help you!"
+    - "Hey, How is it going. How May I help you Today"
+  utter_goodbye:
+    - "goodbye :)"
+    - "Bye-bye"
+    - "Bon - Apetite"
+  utter_affirm:
+    - "ok"
+    - "okay"
+    - "okie"
+    - "yeah"
+    - "yes"
+    - "dosend"
+  utter_deny:
+    - "no"
+    - "nope"
+    - "nah" 
+    - "notnow" 
+  utter_default:
+    - "Sorry I didn't follow that!"
+    - "I didn't get that!"
+  utter_noService:
+    - "Sorry! We do not operate in that area yet. Please enter new location."
+  utter_ask_cuisine: 
+    - text: "What kind of cuisine would you like?"
+      buttons:
+      - title: "Chinese"
+        payload: 'Chinese'
+      - title: "Italian"
+        payload: 'Italian'
+      - title: "South Indian"
+        payload: 'South Indian'
+      - title: "North Indian"
+        payload: 'North Indian'
+      - title: "American"
+        payload: 'American'
+      - title: "Mexican"
+        payload: 'Mexican'
+  utter_ask_howcanhelp:
+    - "How can I help you?"
+  utter_ask_location:
+    - "In what location?"
+  utter_ask_budget:
+    - text: "What is your budget"
+      buttons:
+      - title: "Less then 300"
+        payload: "<300"
+      - title: "300 to 700"
+        payload: "300 - 700"
+      - title: "More than 700"
+        payload: ">700"
+  utter_get_email_confirmation:
+      - text: "May I send top 10 restaurant list to your email?"
+        buttons:
+        - title: "Yes please"
+          payload: "yes"
+        - title: "No please"
+          payload: "no"
+  utter_ask_send_email:
+    - text: "Please provide an email id!"
+  utter_email_not_sent:
+    - "Sorry! I am currently unable to send mail to {email}"
+  utter_email_sent:
+    - "Email successfuly sent at {email}"
+  utter_ask_reenter_cuisine:
+    - text: "Provide one of the only mentioned cuisines"
+  utter_ask_reenter_location:
+    - text: "We don't operate in this location, please provide another location"
+  utter_restart:
+    - text: ''
+
+actions:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_deny
+- utter_restart
+- utter_affirm
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_cuisine
+- utter_ask_budget
+- utter_ask_send_email
+- utter_get_email_confirmation
+- actions.ActionSearchRestaurants
+- actions.ActionSendEmail
+- actions.ActionGoodBye

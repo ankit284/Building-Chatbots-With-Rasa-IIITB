@@ -1,0 +1,158 @@
+action_factory: null
+action_names:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_deny
+- utter_restart
+- utter_affirm
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_cuisine
+- utter_ask_budget
+- utter_ask_send_email
+- utter_get_email_confirmation
+- action_restaurant
+- action_send_email
+- action_goodbye
+actions:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_deny
+- utter_restart
+- utter_affirm
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_cuisine
+- utter_ask_budget
+- utter_ask_send_email
+- utter_get_email_confirmation
+- actions.ActionSearchRestaurants
+- actions.ActionSendEmail
+- actions.ActionGoodBye
+config:
+  store_entities_as_slots: true
+entities:
+- location
+- cuisine
+- email
+- budget
+intents:
+- greet
+- affirm
+- deny
+- goodbye
+- restaurant_search
+- send_email
+- budget
+- location
+- cuisine
+- default
+slots:
+  api_response:
+    initial_value: null
+    type: rasa_core.slots.UnfeaturizedSlot
+  budget:
+    initial_value: null
+    max_value: 1.0
+    min_value: 0
+    type: rasa_core.slots.FloatSlot
+  city_id:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  cuisine:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  cuisine_key:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  email:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  lat:
+    initial_value: null
+    max_value: 1.0
+    min_value: 0.0
+    type: rasa_core.slots.FloatSlot
+  location:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  lon:
+    initial_value: null
+    max_value: 1.0
+    min_value: 0.0
+    type: rasa_core.slots.FloatSlot
+templates:
+  utter_affirm:
+  - text: ok
+  - text: okay
+  - text: okie
+  - text: yeah
+  - text: yes
+  - text: dosend
+  utter_ask_budget:
+  - buttons:
+    - payload: <300
+      title: Less then 300
+    - payload: 300 - 700
+      title: 300 to 700
+    - payload: '>700'
+      title: More than 700
+    text: What is your budget
+  utter_ask_cuisine:
+  - buttons:
+    - payload: Chinese
+      title: Chinese
+    - payload: Italian
+      title: Italian
+    - payload: South Indian
+      title: South Indian
+    - payload: North Indian
+      title: North Indian
+    - payload: American
+      title: American
+    - payload: Mexican
+      title: Mexican
+    text: What kind of cuisine would you like?
+  utter_ask_howcanhelp:
+  - text: How can I help you?
+  utter_ask_location:
+  - text: In what location?
+  utter_ask_reenter_cuisine:
+  - text: Provide one of the only mentioned cuisines
+  utter_ask_reenter_location:
+  - text: We don't operate in this location, please provide another location
+  utter_ask_send_email:
+  - text: Please provide an email id!
+  utter_default:
+  - text: Sorry I didn't follow that!
+  - text: I didn't get that!
+  utter_deny:
+  - text: no
+  - text: nope
+  - text: nah
+  - text: notnow
+  utter_email_not_sent:
+  - text: Sorry! I am currently unable to send mail to {email}
+  utter_email_sent:
+  - text: Email successfuly sent at {email}
+  utter_get_email_confirmation:
+  - buttons:
+    - payload: yes
+      title: Yes please
+    - payload: no
+      title: No please
+    text: May I send top 10 restaurant list to your email?
+  utter_goodbye:
+  - text: goodbye :)
+  - text: Bye-bye
+  - text: Bon - Apetite
+  utter_greet:
+  - text: hey there! How may i help you
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going. How May I help you Today
+  utter_noService:
+  - text: Sorry! We do not operate in that area yet. Please enter new location.
+  utter_restart:
+  - text: ''

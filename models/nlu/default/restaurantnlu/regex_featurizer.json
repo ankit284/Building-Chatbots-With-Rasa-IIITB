@@ -1,0 +1,22 @@
+[
+    {
+        "name": "budget",
+        "pattern": "[0-9]{3,5}"
+    },
+    {
+        "name": "email",
+        "pattern": "[a-zA-Z]{1}(\\w|\\.|\\+|-)*@[a-zA-Z]{1}(\\w|-)*\\.[\\w]{2,}"
+    },
+    {
+        "name": "greet",
+        "pattern": "hey[^\\s]*"
+    },
+    {
+        "name": "restaurant_search",
+        "pattern": "((?i)(restaurant|restaurants|eat|food|dine|lunch))"
+    },
+    {
+        "name": "zipcode",
+        "pattern": "[0-9]{6}"
+    }
+]

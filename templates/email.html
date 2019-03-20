@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+   <body>
+    <p>The details of restaurant you requested for</p></br>
+      <table border = 1>
+        <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Budget</th>
+            <th>Zomato Ratings</th>
+        </tr>
+         {% for key, value in result.items() %}
+
+            <tr>
+               <td> {{ key }} </td>
+               <td> {{ value[0] }} </td>
+               <td> {{ value[1] }} </td>
+               <td> {{ value[2] }} </td>
+               <td> {{ value[3] }}</td>
+            </tr>
+         {% endfor %}
+      </table>
+    </br><p>Regards,</p>
+   </body>
+</html>
